@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 #include<iostream>
@@ -10,13 +10,13 @@ public:
 	string sName;
 	int sScore;
 
-	//ÖØÔØÔËËã·û<
+	//é‡è½½è¿ç®—ç¬¦<
 	bool operator<(const Student &otherStudent) {
 		return sScore != otherStudent.sScore ? sScore< otherStudent.sScore : sName<otherStudent.sName;
 	}
-	//ÖØÔØÊä³öÔËËã·û<<
+	//é‡è½½è¾“å‡ºè¿ç®—ç¬¦<<
 	friend ostream&operator<<(ostream&os, const Student&student) {
-		os << "Student:" << student.sName << "¡¡" << student.sScore << endl;
+		os << "Student:" << student.sName << "ã€€" << student.sScore << endl;
 		return os;
 	}
 	/*bool operator<(const Student&otherStudent) {

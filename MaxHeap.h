@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include<algorithm>
 #include<string>
 #include<cmath>
@@ -17,9 +17,9 @@ private:
 			k/=2;
 		}
 	}
-	void shiftDown(int k) {//´Ë´¦¿ÉÒÔÓÅ»¯£¬swap²Ù×÷¿ÉÒÔ»»³ÉÕÒµ½×îÖÕµÄÎ»ÖÃ£¬½øĞĞÒ»´Î½»»»¼´¿É¡£
+	void shiftDown(int k) {//æ­¤å¤„å¯ä»¥ä¼˜åŒ–ï¼Œswapæ“ä½œå¯ä»¥æ¢æˆæ‰¾åˆ°æœ€ç»ˆçš„ä½ç½®ï¼Œè¿›è¡Œä¸€æ¬¡äº¤æ¢å³å¯ã€‚
 		while (2 * k <= count) {
-			int j = 2 * k;//´ËÂÖÑ­»·ÖĞdata[k]Óëdata[j]½»»»Î»ÖÃ
+			int j = 2 * k;//æ­¤è½®å¾ªç¯ä¸­data[k]ä¸data[j]äº¤æ¢ä½ç½®
 			if (j + 1 <= count&&data[j + 1]>data[j])
 				j += 1;
 			if (data[k] >= data[j])
@@ -54,7 +54,7 @@ public:
 		return count == 0;
 	}
 	void insert(Item item) {
-		assert(count + 1 <= capacity);//µ±ÈİÁ¿²»¹»Ê±£¬×Ô¶¯Ôö´ódataµÄÈİÁ¿¡£
+		assert(count + 1 <= capacity);//å½“å®¹é‡ä¸å¤Ÿæ—¶ï¼Œè‡ªåŠ¨å¢å¤§dataçš„å®¹é‡ã€‚
 		data[count + 1] = item;
 		count++;
 		shiftUp(count);

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #pragma once
 #include<algorithm>
 #include<string>
@@ -19,9 +19,9 @@ private:
 			k /= 2;
 		}
 	}
-	void shiftDown(int k) {//´Ë´¦¿ÉÒÔÓÅ»¯£¬swap²Ù×÷¿ÉÒÔ»»³ÉÕÒµ½×îÖÕµÄÎ»ÖÃ£¬½øĞĞÒ»´Î½»»»¼´¿É¡£
+	void shiftDown(int k) {//æ­¤å¤„å¯ä»¥ä¼˜åŒ–ï¼Œswapæ“ä½œå¯ä»¥æ¢æˆæ‰¾åˆ°æœ€ç»ˆçš„ä½ç½®ï¼Œè¿›è¡Œä¸€æ¬¡äº¤æ¢å³å¯ã€‚
 		while (2 * k <= count) {
-			int j = 2 * k;//´ËÂÖÑ­»·ÖĞdata[k]Óëdata[j]½»»»Î»ÖÃ
+			int j = 2 * k;//æ­¤è½®å¾ªç¯ä¸­data[k]ä¸data[j]äº¤æ¢ä½ç½®
 			if (j + 1 <= count&&dataindexes[j + 1]]>data[indexes[j]])
 				j += 1;
 			if (data[indexes[k]] >= data[indexes[j]])
@@ -57,9 +57,9 @@ public:
 	bool isEmpty() {
 		return count == 0;
 	}
-	//´«ÈëµÄi¶ÔÓÃ»§¶øÑÔÊÇ´Ó0¿ªÊ¼µÄ
+	//ä¼ å…¥çš„iå¯¹ç”¨æˆ·è€Œè¨€æ˜¯ä»0å¼€å§‹çš„
 	void insert(int i,Item item) {
-		assert(count + 1 <= capacity);//µ±ÈİÁ¿²»¹»Ê±£¬×Ô¶¯Ôö´ódataµÄÈİÁ¿¡£
+		assert(count + 1 <= capacity);//å½“å®¹é‡ä¸å¤Ÿæ—¶ï¼Œè‡ªåŠ¨å¢å¤§dataçš„å®¹é‡ã€‚
 		assert(i + 1 >= 1 && i + 1 <= capacity);
 		i += 1;
 
@@ -96,15 +96,15 @@ public:
 		shiftDown(1);
 		return ret;
 	}
-	//iµÄÖµÎªÓÃ»§¿´µ½µÄÖµ£¬ÒÔ0ÎªË÷ÒıµÄ
+	//içš„å€¼ä¸ºç”¨æˆ·çœ‹åˆ°çš„å€¼ï¼Œä»¥0ä¸ºç´¢å¼•çš„
 	Item getItem(int i) {
 		return data[i + 1];
 	}
 	void change(int i, Item newItem) {
 		i += 1;
 		data[i] = newItem;
-		//ÕÒµ½indexes[j]=i,j±íÊ¾data[i]ÔÚ¶ÑÖĞµÄÎ»ÖÃ
-		//Ö®ºóshiftUp£¨j£©£¬ÔÙshiftDown£¨j£©
+		//æ‰¾åˆ°indexes[j]=i,jè¡¨ç¤ºdata[i]åœ¨å †ä¸­çš„ä½ç½®
+		//ä¹‹åshiftUpï¼ˆjï¼‰ï¼Œå†shiftDownï¼ˆjï¼‰
 		for (int j = 1; j <= count; j++) {
 			if (indexes[j] == i) {
 				shiftUp(j);

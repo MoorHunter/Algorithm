@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include<iostream>
 #include<queue>
 using namespace std;
@@ -50,21 +50,21 @@ public:
 	Value* search(Key key) {
 		return search(root, key);
 	}
-	//Éî¶ÈÓÅÏÈ±éÀú
-	//Ç°Ğò±éÀú
+	//æ·±åº¦ä¼˜å…ˆéå†
+	//å‰åºéå†
 	void preOrder() {
 		preOrder(root);
 	}
-	//ÖĞĞò±éÀú
+	//ä¸­åºéå†
 	void inOrder() {
 		inOrder(root);
 	}
-	//ºóĞò±éÀú
+	//ååºéå†
 	void postOrder() {
 		postOrder(root);
 	}
-	//¹ã¶ÈÓÅÏÈ±éÀú
-	//²ãĞò±éÀú
+	//å¹¿åº¦ä¼˜å…ˆéå†
+	//å±‚åºéå†
 	void levelOrder() {
 		queue<Node*> q;
 		q.push(root);
@@ -80,7 +80,7 @@ public:
 				q.push(node->right);
 		}
 	}
-	//minimumÓĞµİ¹éÊµÏÖ·½·¨ºÍ·Çµİ¹éÊµÏÖ·½·¨
+	//minimumæœ‰é€’å½’å®ç°æ–¹æ³•å’Œéé€’å½’å®ç°æ–¹æ³•
 	Key minimum() {
 		assert(count != 0);
 		Node* minNode = minimumRecursion(root);
@@ -92,23 +92,23 @@ public:
 		return maxNode->key;
 	}
 
-	//´Ó¶ş²æËÑË÷Ê÷ÖĞÉ¾³ı×îĞ¡ÖµµÄËùÔÚµÄ½Úµã
+	//ä»äºŒå‰æœç´¢æ ‘ä¸­åˆ é™¤æœ€å°å€¼çš„æ‰€åœ¨çš„èŠ‚ç‚¹
 	void removeMin() {
 		if (root) {
 			root = removeMin(root);
 		}
 	}
-	//´Ó¶ş²æËÑË÷Ê÷ÖĞÉ¾³ı×î´óÖµµÄËùÔÚµÄ½Úµã
+	//ä»äºŒå‰æœç´¢æ ‘ä¸­åˆ é™¤æœ€å¤§å€¼çš„æ‰€åœ¨çš„èŠ‚ç‚¹
 	void removeMax() {
 		if (root) {
 			root = removeMax(root);
 		}
 	}
 
-	//´Ó¶ş²æËÑË÷Ê÷ÖĞÉ¾³ı¼üÖµÎªkeyµÄ½Úµã
-	//´Ë´¦É¾³ıÓĞÁ½ÖÖ·½·¨remove1¡¢remove2  
-	//remove1ÊÇÔÚÒªÉ¾³ı½ÚµãµÄÓÒ×ÓÊ÷ÖĞÕÒµ½×îĞ¡Öµ´úÌæÒªÉ¾³ıµÄ
-	//remove2ÊÇÔÚÒªÉ¾³ı½ÚµãµÄ×ó×ÓÊ÷ÖĞÕÒµ½×î´óÖµ´úÌæÒªÉ¾³ıµÄ
+	//ä»äºŒå‰æœç´¢æ ‘ä¸­åˆ é™¤é”®å€¼ä¸ºkeyçš„èŠ‚ç‚¹
+	//æ­¤å¤„åˆ é™¤æœ‰ä¸¤ç§æ–¹æ³•remove1ã€remove2  
+	//remove1æ˜¯åœ¨è¦åˆ é™¤èŠ‚ç‚¹çš„å³å­æ ‘ä¸­æ‰¾åˆ°æœ€å°å€¼ä»£æ›¿è¦åˆ é™¤çš„
+	//remove2æ˜¯åœ¨è¦åˆ é™¤èŠ‚ç‚¹çš„å·¦å­æ ‘ä¸­æ‰¾åˆ°æœ€å¤§å€¼ä»£æ›¿è¦åˆ é™¤çš„
 	void removeKey(Key key) {
 		root = remove1(root, key);
 		//root = remove2(root, key);
@@ -116,8 +116,8 @@ public:
 	}
 
 private:
-	//ÏòÒÔnodeÎª¸ù½ÚµãµÄ¶ş²æËÑË÷Ê÷ÖĞ²åÈë½Úµã£¨key£¬value£©
-	//·µ»Ø²åÈëĞÂ½ÚµãºóµÄ¶ş²æËÑË÷Ê÷µÄ¸ù
+	//å‘ä»¥nodeä¸ºæ ¹èŠ‚ç‚¹çš„äºŒå‰æœç´¢æ ‘ä¸­æ’å…¥èŠ‚ç‚¹ï¼ˆkeyï¼Œvalueï¼‰
+	//è¿”å›æ’å…¥æ–°èŠ‚ç‚¹åçš„äºŒå‰æœç´¢æ ‘çš„æ ¹
 	Node*insert(Node *node, Key key, Value value) {
 		if (node == NULL) {
 			count++;
@@ -131,7 +131,7 @@ private:
 			node->left = insert(node->left, key, value);
 		return node;
 	}
-	//²é¿´ÒÔnodeÎª¸ù½ÚµãµÄ¶ş²æËÑË÷Ê÷ÖĞÊÇ·ñ´æÔÚ¼üÖµÎªkeyµÄ½Úµã
+	//æŸ¥çœ‹ä»¥nodeä¸ºæ ¹èŠ‚ç‚¹çš„äºŒå‰æœç´¢æ ‘ä¸­æ˜¯å¦å­˜åœ¨é”®å€¼ä¸ºkeyçš„èŠ‚ç‚¹
 	bool contain(Node* node, Key key) {
 		if (node == NULL)
 			return false;
@@ -142,7 +142,7 @@ private:
 		else
 			return contain(node->left, key);
 	}
-	//ÔÚÒÔnodeÎª¸ù½ÚµãµÄ¶ş²æËÑË÷Ê÷ÖĞ²éÕÒkeyËù¶ÔÓ¦µÄvalue
+	//åœ¨ä»¥nodeä¸ºæ ¹èŠ‚ç‚¹çš„äºŒå‰æœç´¢æ ‘ä¸­æŸ¥æ‰¾keyæ‰€å¯¹åº”çš„value
 	Value*search(Node*node, Key key) {
 		if (node == NULL)
 			return NULL;
@@ -153,7 +153,7 @@ private:
 		else
 			return search(node->left, key);
 	}
-	//¶ÔÒÔnodeÎª½ÚµãµÄ¶ş²æËÑË÷Ê÷½øĞĞÇ°Ğò±éÀú
+	//å¯¹ä»¥nodeä¸ºèŠ‚ç‚¹çš„äºŒå‰æœç´¢æ ‘è¿›è¡Œå‰åºéå†
 	void preOrder(Node* node) {
 		if (node != NULL) {
 			cout << node->key << endl;
@@ -183,14 +183,14 @@ private:
 			count--;
 		}
 	}
-	//µİ¹éĞ´·¨Ñ°ÕÒ×îĞ¡ÖµµÄ½Úµã
+	//é€’å½’å†™æ³•å¯»æ‰¾æœ€å°å€¼çš„èŠ‚ç‚¹
 	Node* minimumRecursion(Node* node) {
 		if (node->left == NULL) {
 			return node;
 		}
 		return minimum(node->left);
 	}
-	//·Çµİ¹éĞ´·¨Ñ°ÕÒ×îĞ¡ÖµµÄ½Úµã
+	//éé€’å½’å†™æ³•å¯»æ‰¾æœ€å°å€¼çš„èŠ‚ç‚¹
 	Node* minimum(Node*node) {
 		while (node->left != NULL)
 			node = node->left;
@@ -201,8 +201,8 @@ private:
 			return node;
 		return maximum(node->right);
 	}
-	//É¾³ıÒÔnodeÎª¸ù½ÚµãµÄ¶ş·ÖËÑË÷Ê÷ÖĞµÄ×îĞ¡½Úµã
-	//·µ»ØÉ¾³ı½ÚµãºóĞÂµÄ¶ş·ÖËÑË÷Ê÷µÄ¸ú
+	//åˆ é™¤ä»¥nodeä¸ºæ ¹èŠ‚ç‚¹çš„äºŒåˆ†æœç´¢æ ‘ä¸­çš„æœ€å°èŠ‚ç‚¹
+	//è¿”å›åˆ é™¤èŠ‚ç‚¹åæ–°çš„äºŒåˆ†æœç´¢æ ‘çš„è·Ÿ
 	Node* removeMin(Node* node) {
 		if (node->left == NULL) {
 			Node*rightNode = node->right;
@@ -213,7 +213,7 @@ private:
 		node->left = removeMin(node->left);
 		return node;
 	}
-	//·Çµİ¹é·½·¨ÈçºÎÊµÏÖ£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿
+	//éé€’å½’æ–¹æ³•å¦‚ä½•å®ç°ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
 	Node* removeMax(Node* node) {
 		Node* rightNode = node->right;
 		while (node->right != NULL)

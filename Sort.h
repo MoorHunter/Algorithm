@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include<vector>
 #include"MaxHeap.h"
 using namespace std;
 
@@ -28,14 +29,14 @@ void insertionSort(T arr[], int n) {    //2                                     
 
 	for (int i = 1; i < n; i++) {
 
-		//// —∞’“‘™Àÿarr[i]∫œ  µƒ≤Â»ÎŒª÷√
-		//// –¥∑®1
+		//// ÂØªÊâæÂÖÉÁ¥†arr[i]ÂêàÈÄÇÁöÑÊèíÂÖ•‰ΩçÁΩÆ
+		//// ÂÜôÊ≥ï1
 		////        for( int j = i ; j > 0 ; j-- )
 		////            if( arr[j] < arr[j-1] )
 		////                swap( arr[j] , arr[j-1] );
 		////            else
 		////                break;
-		//// –¥∑®2
+		//// ÂÜôÊ≥ï2
 		//for (int j = i; j > 0 && arr[j] < arr[j - 1]; j--)
 		//	swap(arr[j], arr[j - 1]);
 		T e = arr[i];
@@ -68,7 +69,7 @@ void bubbleSort(T arr[], int n) {//3
 
 	return;
 }
-//œ£∂˚≈≈–Ú
+//Â∏åÂ∞îÊéíÂ∫è
 template<typename T>
 void shellSort(T arr[], int n) {//4
 	int gap = n / 2;
@@ -89,11 +90,13 @@ void shellSort(T arr[], int n) {//4
 	}
 	return;
 }
-//πÈ≤¢≈≈–Ú
+//ÂΩíÂπ∂ÊéíÂ∫è
 template<typename T>
 void __merge(T arr[], int l, int mid, int r) {
 
-	T A[r - l + 1];
+	//T A[r - l + 1];
+	//vector<T> A[r - l + 1];
+	T* A=new T[r - l + 1];
 	for (int i = l; i <= r; i++)
 		A[i - l] = arr[i];
 
@@ -116,8 +119,9 @@ void __merge(T arr[], int l, int mid, int r) {
 			j++;
 		}
 	}
+	delete[]A;
 }
-//µ›πÈ π”√πÈ≤¢≈≈–Ú£¨∂‘arr[l°£°£°£°£r]µƒ∑∂ŒßΩ¯––≈≈–Ú
+//ÈÄíÂΩí‰ΩøÁî®ÂΩíÂπ∂ÊéíÂ∫èÔºåÂØπarr[l„ÄÇ„ÄÇ„ÄÇ„ÄÇr]ÁöÑËåÉÂõ¥ËøõË°åÊéíÂ∫è
 template<typename T>
 void __mergeSort(T arr[], int l, int r) {
 	if (l >= r)return;
@@ -261,7 +265,7 @@ void heapSort2(T arr[], int n) {//7*
 template<typename T>
 void __shiftDown(T arr[], int n, int k) {
 	while (2 * k+1 <= n) {
-		int j = 2 * k+1;//¥À¬÷—≠ª∑÷–data[k]”Îdata[j]ΩªªªŒª÷√
+		int j = 2 * k+1;//Ê≠§ËΩÆÂæ™ÁéØ‰∏≠data[k]‰∏édata[j]‰∫§Êç¢‰ΩçÁΩÆ
 		if (j + 1 <= n&&arr[j + 1]>arr[j])
 			j += 1;
 		if (arr[k] >= arr[j])

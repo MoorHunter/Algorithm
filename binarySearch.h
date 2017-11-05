@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include<algorithm>
 #include<string>
 #include<cmath>
@@ -7,10 +7,10 @@
 using namespace std;
 template<typename T>
 int binarySearch(T arr[], int n, T target) {
-	//¶ş·Ö²éÕÒ·¨£¬ÔÚÓĞĞòÊı×éarrÖĞ£¬²éÕÒtarget
-	//Èç¹ûÕÒµ½·µ»Øindex£¬·ñÔò·µ»Ø-1
+	//äºŒåˆ†æŸ¥æ‰¾æ³•ï¼Œåœ¨æœ‰åºæ•°ç»„arrä¸­ï¼ŒæŸ¥æ‰¾target
+	//å¦‚æœæ‰¾åˆ°è¿”å›indexï¼Œå¦åˆ™è¿”å›-1
 
-	//ÔÚarr[l...r]Ö®ÖĞ²éÕÒtarget
+	//åœ¨arr[l...r]ä¹‹ä¸­æŸ¥æ‰¾target
 	int l = 0, r = n - 1;
 	while (l <= r) {
 		//int mid = (r + l) / 2;
@@ -25,7 +25,7 @@ int binarySearch(T arr[], int n, T target) {
 	}
 	return -1;
 }
-template<typename T>//µİ¹érecursion
+template<typename T>//é€’å½’recursion
 int binarySearchRecusion(T arr[], int l, int r, T target) {
 	if (l > r)return -1;
 	else {
@@ -43,8 +43,8 @@ int binarySearch1(T arr[], int n, T target) {
 	return binarySearchRecusion(arr, 0, n - 1, target);
 }
 
-//¶ş·Ö²éÕÒÖĞÈç¹û´æÔÚ´óÁ¿ÖØ¸´ÔªËØ£¬´ËÊ±ÒıÈëfloorºÍceil
-//ÆäÖĞfloorÎªarrÖĞµÚÒ»¸öÎªtargetµÄÔªËØÎ»ÖÃ£¬ceilÎª×îºóÒ»¸ötargetµÄÎ»ÖÃ
+//äºŒåˆ†æŸ¥æ‰¾ä¸­å¦‚æœå­˜åœ¨å¤§é‡é‡å¤å…ƒç´ ï¼Œæ­¤æ—¶å¼•å…¥floorå’Œceil
+//å…¶ä¸­floorä¸ºarrä¸­ç¬¬ä¸€ä¸ªä¸ºtargetçš„å…ƒç´ ä½ç½®ï¼Œceilä¸ºæœ€åä¸€ä¸ªtargetçš„ä½ç½®
 template<typename T>
 int binarySearchFlCe(T arr[], int n, T target) {
 	int floCei[2] = { -1,-1 };
